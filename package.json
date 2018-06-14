@@ -10,16 +10,14 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.18",
         "babel-preset-react": "^6.23.0",
-        "bootstrap": "^4.0.0",
+        "babel-eslint": "^8.2.3",
+        "browser-sync": "^2.24.4",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4",
-        "popper.js": "^1.12",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "eslint": "^4.19.1",
+        "eslint-plugin-react": "^7.9.1",
+        "laravel-mix": "^2.0"
     },
     "dependencies": {
         "axios": "^0.18",
@@ -34,5 +32,14 @@
         "react-photo-gallery": "^6.0.28",
         "react-router-dom": "^4.3.1",
         "toastr": "^2.1.4"
+    },
+    "jest": {
+        "testEnvironment": "jsdom"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "node": true
+        }
     }
 }
