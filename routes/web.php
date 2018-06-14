@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* Add 'all' requests route to render app.blade.php view against all incoming requests.
+We’ve added all requests route under an auth route group to ensure authenticated access to our single page application.
+*/
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('{all?}', 'GalleryController@index')->where('all', '([A-z\d-\/_.]+)?');
+});
+
+// Route::get('/home', 'HomeController@index')->name('home');
