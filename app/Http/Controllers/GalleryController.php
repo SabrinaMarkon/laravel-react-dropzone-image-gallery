@@ -15,14 +15,20 @@ class GalleryController extends Controller
     }
 
     public function uploadPhotos(Request $request) {
+        // get the uploaded file
         $file = $request->file('file');
+        // get the file's extension
         $ext = $file->extension();
+        // generate random name with extension.
         $name = str_random(20) . '.' . $ext;
+        // get the width and height of the image
         list($width, $height)= getimagesize($file);
+        // use Laravel Storage facade to store file to disk
         $path = Storage::disk('public')->putFileAs(
             'uploads', $file, $name
         );
         if ($path) {
+            // save new post to photos table
             $create = Auth::user()->photos()->create([
                 'uri' => $path,
                 'public' => false,
