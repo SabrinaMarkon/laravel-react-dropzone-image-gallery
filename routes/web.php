@@ -21,6 +21,10 @@ Auth::routes();
 We’ve added all requests route under an auth route group to ensure authenticated access to our single page application.
 */
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/photos', 'GalleryController@getPhotos');
+    Route::post('/photos', 'GalleryController@uploadPhotos');
+    Route::delete('/photos', 'GalleryController@deletePhoto');
+    Route::get('/logout', 'Auth\LoginController@logout');
     Route::get('{all?}', 'GalleryController@index')->where('all', '([A-z\d-\/_.]+)?');
 });
 
