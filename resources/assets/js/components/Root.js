@@ -10,7 +10,6 @@ export default class Root extends Component {
         return (
             <Fragment>
                 <Route path="/" render={(props) = ( <Navbar {...props} /> )} />
-
                 <div className="container">
                     <Route exact path="/" component={Gallery} />
                     <Route exact path="/manage" component={ManageGallery} />

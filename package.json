@@ -11,9 +11,8 @@
     },
     "devDependencies": {
         "babel-preset-react": "^6.23.0",
-        "babel-eslint": "^8.2.3",
         "browser-sync": "^2.24.4",
-        "browser-sync-webpack-plugin": "^2.0.1",
+        "browser-sync-webpack-plugin": "^2.2.2",
         "cross-env": "^5.1",
         "eslint": "^4.19.1",
         "eslint-plugin-react": "^7.9.1",
@@ -32,14 +31,5 @@
         "react-photo-gallery": "^6.0.28",
         "react-router-dom": "^4.3.1",
         "toastr": "^2.1.4"
-    },
-    "jest": {
-        "testEnvironment": "jsdom"
-    },
-    "eslintConfig": {
-        "env": {
-            "browser": true,
-            "node": true
-        }
     }
 }
