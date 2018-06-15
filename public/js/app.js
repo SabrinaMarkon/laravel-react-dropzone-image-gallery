@@ -42100,9 +42100,37 @@ var Uploader = function (_Component) {
             }
         }
     }, {
+        key: 'uploadFiles',
+        value: function uploadFiles() {
+            var _this2 = this;
+
+            var images = this.state.images,
+                config = { headers: { 'Content-Type': 'multipart/form-data' } },
+                total_files = this.state.images.length,
+                uploaded = 0;
+
+            this.setState({
+                uploading: true
+            });
+
+            /* Separately upload every separate file, then if the upload succeeds, remove that file from the state and update progress bar. */
+            images.map(function (image) {
+                var formData = new FormData();
+                formData.append("file", image);
+
+                Object(__WEBPACK_IMPORTED_MODULE_3_axios__["post"])("/photos", formData, config).then(function (response) {
+                    var done = response.data;
+                    if (done) {
+                        _this2.removeDroppedFile(image.preview);
+                        _this2.calculateProgress(total_files, ++uploaded);
+                    }
+                });
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -42151,7 +42179,7 @@ var Uploader = function (_Component) {
                                     'span',
                                     {
                                         className: 'close',
-                                        onClick: _this2.removeDroppedFile.bind(_this2, file.preview) },
+                                        onClick: _this3.removeDroppedFile.bind(_this3, file.preview) },
                                     'X'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: file.preview, alt: '' })

@@ -30,6 +30,31 @@ export default class Uploader extends Component {
         }
     }
 
+    uploadFiles() {
+        let images = this.state.images,
+        config = { headers: { 'Content-Type': 'multipart/form-data'} },
+        total_files = this.state.images.length,
+        uploaded = 0;
+
+        this.setState({
+            uploading: true
+        });
+
+        /* Separately upload every separate file, then if the upload succeeds, remove that file from the state and update progress bar. */
+        images.map((image) => {
+            let formData = new FormData();
+            formData.append("file", image);
+
+            post("/photos", formData, config). then(response => {
+                const done = response.data;
+                if (done) {
+                    this.removeDroppedFile(image.preview);
+                    this.calculateProgress(total_files, ++uploaded);
+                }
+            });
+        });
+    }
+
     render() {
         return (
             <div className="uploader">
@@ -53,10 +78,10 @@ export default class Uploader extends Component {
 
                 {this.state.images.length ?
                     <Fragment>
-                        {this.state.uploading && 
+                        {this.state.uploading &&
                         <div className="progress">
                             <div
-                                className="progress-bar" 
+                                className="progress-bar"
                                 role="progressbar"
                                 style={{width: this.state.progress}}
                                 aria-valuenow={this.state.progress}
@@ -73,10 +98,10 @@ export default class Uploader extends Component {
                                         onClick={this.removeDroppedFile.bind(this, file.preview)}>X</span>
                                     <img src={file.preview} alt="" />
                                 </div>
-                            )}                        
+                            )}
                         </div>
                     </Fragment>
-                    : 
+                    :
                     <div className="no-images">
                         <h5 className="text-center">Selected images will appear here</h5>
                     </div>
