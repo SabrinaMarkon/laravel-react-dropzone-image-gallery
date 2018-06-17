@@ -1,3 +1,5 @@
+import React, {Component} from 'react';
+
 export default class Gallery extends Component {
 
     constructor(props) {
@@ -66,7 +68,17 @@ export default class Gallery extends Component {
                     <h5 className="text-center">
                         You currenty have no images in your photos gallery
                     </h5>
-                </div>}
+                </div>
+                }
+
+                <Lightbox
+                    images={photos}
+                    onClose={this.closeLightbox.bind(this)}
+                    onClickPrev={this.gotoPrevious.bind(this)}
+                    onClickNext={this.gotoNext.bind(this)}
+                    currentImage={this.state.currentImage}
+                    isOpen={this.state.lightboxIsOpen}
+                    />
             </div>
         );
     }
