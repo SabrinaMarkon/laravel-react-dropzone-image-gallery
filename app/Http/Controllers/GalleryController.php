@@ -11,7 +11,8 @@ class GalleryController extends Controller
     }
 
     public function getPhotos() {
-
+        /* We are returning a JSON response with all images uploaded by the user. After getting a response, we are updating images state on Gallery component. */
+        return response()->json(Auth::user()->photos->toArray());
     }
 
     public function uploadPhotos(Request $request) {
