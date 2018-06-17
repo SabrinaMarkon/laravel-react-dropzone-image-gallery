@@ -39504,8 +39504,8 @@ var Root = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                     'div',
                     { className: 'container' },
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: this.Gallery }),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/upload', component: this.Uploader })
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_3__Gallery__["a" /* default */] }),
+                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/upload', component: __WEBPACK_IMPORTED_MODULE_4__Uploader__["a" /* default */] })
                 )
             );
         }
@@ -42149,7 +42149,7 @@ var Gallery = function (_Component) {
     return Gallery;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Gallery);
+/* harmony default export */ __webpack_exports__["a"] = (Gallery);
 
 /***/ }),
 /* 92 */
@@ -42312,7 +42312,7 @@ var Uploader = function (_Component) {
     return Uploader;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Uploader);
+/* harmony default export */ __webpack_exports__["a"] = (Uploader);
 
 /***/ }),
 /* 93 */,

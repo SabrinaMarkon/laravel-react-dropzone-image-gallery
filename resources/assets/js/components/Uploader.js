@@ -106,7 +106,6 @@ export default class Uploader extends Component {
                         <h5 className="text-center">Selected images will appear here</h5>
                     </div>
                     }
-
             </div>
         );
     }

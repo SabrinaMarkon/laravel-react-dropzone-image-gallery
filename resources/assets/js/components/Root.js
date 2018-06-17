@@ -14,9 +14,9 @@ export default class Root extends Component {
                 )}/>
 
                 <div className="container">
-                     <Route exact path="/" component={this.Gallery}/>
-                     {/* <Route exact path="/manage" component={this.ManageGallery}/> */}
-                    <Route exact path="/upload" component={this.Uploader}/>
+                     <Route exact path="/" component={Gallery}/>
+                     {/* <Route exact path="/manage" component={ManageGallery}/> */}
+                    <Route exact path="/upload" component={Uploader}/>
                 </div>
             </Fragment>
         );
