@@ -19,9 +19,11 @@ export default class Uploader extends Component {
     }
 
     onDrop(images) {
+        //console.log(images);
         this.setState({
-            images: this.state.images.concat([...images])
+            images: this.state.images.push([...images])
         });
+        //console.log(this.state.images);
     }
 
     onDropRejected(images) {
@@ -103,7 +105,7 @@ export default class Uploader extends Component {
                     </Fragment>
                     :
                     <div className="no-images">
-                        <h5 className="text-center">Selected images will appear here</h5>
+                        <div><h5 className="text-center">Selected images will appear here</h5></div>
                     </div>
                     }
             </div>

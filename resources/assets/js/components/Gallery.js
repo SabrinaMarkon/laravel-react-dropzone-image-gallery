@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {get} from 'axios';
+import ReactGallery from 'react-photo-gallery';
+import Lightbox from 'react-images';
 
 export default class Gallery extends Component {
 
@@ -12,13 +15,15 @@ export default class Gallery extends Component {
     }
 
     componentDidMount() {
-        get('/photos')
+        if (this.state.images.length > 0) {
+            get('/photos')
             .then(response => {
                 const images = response.data;
                 this.setState({
-                    images
+                    images: images
                 });
             })
+        }
     }
 
     openLightbox(event, obj) {
