@@ -10,17 +10,15 @@ export default class Navbar extends Component {
 
     render() {
         return (
-            <div className="container nav-bar">
-                <ul className="nav justify-content-center">
-                    <li className="nav-item">
-                        <Link to={'/'} className={`nav-link ${this.props.location.pathname === '/' ? 'active' : ''}`} >GALLERY</Link>
-                        <Link to={'/upload'} className={`nav-link ${this.props.location.pathname === '/upload' ? 'active' : ''}`} >UPLOADER</Link>         <Link to={'/manage'} className={`nav-link ${this.props.location.pathname === '/manage' ? 'active' : ''}`} >MANAGE</Link>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/logout">LOGOUT</a>
-                    </li>
-                </ul>
-            </div>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div className="navbar-nav mr-auto">
+                    <Link to={'/'} className={`nav-link ${this.props.location.pathname === '/' ? 'active' : ''}`} >GALLERY</Link>
+                    <Link to={'/upload'} className={`nav-link ${this.props.location.pathname === '/upload' ? 'active' : ''}`} >UPLOADER</Link>         <Link to={'/manage'} className={`nav-link ${this.props.location.pathname === '/manage' ? 'active' : ''}`} >MANAGE</Link>
+                </div>
+                <div className="navbar-nav ml-auto">
+                    <a className="nav-link" href="/logout">LOGOUT</a>
+                </div>
+            </nav>
         );
     }
 

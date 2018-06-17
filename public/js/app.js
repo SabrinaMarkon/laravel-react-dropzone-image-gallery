@@ -39468,8 +39468,6 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Navbar__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Gallery__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Uploader__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ManageGallery__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ManageGallery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__ManageGallery__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39483,7 +39481,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
+// import ManageGallery from './ManageGallery';
 
 var Root = function (_Component) {
     _inherits(Root, _Component);
@@ -39507,7 +39505,6 @@ var Root = function (_Component) {
                     'div',
                     { className: 'container' },
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: this.Gallery }),
-                    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/manage', component: this.ManageGallery }),
                     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react_router_dom__["c" /* Route */], { exact: true, path: '/upload', component: this.Uploader })
                 )
             );
@@ -41996,39 +41993,35 @@ var Navbar = function (_Component) {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'container nav-bar' },
+                'nav',
+                { className: 'navbar navbar-expand-lg navbar-dark bg-primary' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'ul',
-                    { className: 'nav justify-content-center' },
+                    'div',
+                    { className: 'navbar-nav mr-auto' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { className: 'nav-item' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                            { to: '/', className: 'nav-link ' + (this.props.location.pathname === '/' ? 'active' : '') },
-                            'GALLERY'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                            { to: '/upload', className: 'nav-link ' + (this.props.location.pathname === '/upload' ? 'active' : '') },
-                            'UPLOADER'
-                        ),
-                        '         ',
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                            { to: '/manage', className: 'nav-link ' + (this.props.location.pathname === '/manage' ? 'active' : '') },
-                            'MANAGE'
-                        )
+                        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                        { to: '/', className: 'nav-link ' + (this.props.location.pathname === '/' ? 'active' : '') },
+                        'GALLERY'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { className: 'nav-item' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'a',
-                            { className: 'nav-link', href: '/logout' },
-                            'LOGOUT'
-                        )
+                        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                        { to: '/upload', className: 'nav-link ' + (this.props.location.pathname === '/upload' ? 'active' : '') },
+                        'UPLOADER'
+                    ),
+                    '         ',
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                        { to: '/manage', className: 'nav-link ' + (this.props.location.pathname === '/manage' ? 'active' : '') },
+                        'MANAGE'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'navbar-nav ml-auto' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'a',
+                        { className: 'nav-link', href: '/logout' },
+                        'LOGOUT'
                     )
                 )
             );
@@ -42322,12 +42315,7 @@ var Uploader = function (_Component) {
 /* unused harmony default export */ var _unused_webpack_default_export = (Uploader);
 
 /***/ }),
-/* 93 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
+/* 93 */,
 /* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
