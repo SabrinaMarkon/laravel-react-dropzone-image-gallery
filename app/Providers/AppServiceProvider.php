@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // We add the below to avoid the "specified key was too long" error when running migrations.
         Schema::defaultStringLength(191);
     }
 
