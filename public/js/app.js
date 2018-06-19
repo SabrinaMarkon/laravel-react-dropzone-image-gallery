@@ -66948,6 +66948,22 @@ var ManageGallery = function (_Component) {
                 });
             });
         }
+
+        /* Mark the image as selected on click event. If there are marked images, we’ll display a delete button */
+
+    }, {
+        key: 'selectImage',
+        value: function selectImage(event, obj) {
+            var _this3 = this;
+
+            var images = this.state.images;
+            images[obj.index].selected = !images[object.index.selected];
+            this.setState({
+                images: images
+            }, function () {
+                _this3.verifyMarked();
+            });
+        }
     }, {
         key: 'render',
         value: function render() {

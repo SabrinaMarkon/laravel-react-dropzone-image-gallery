@@ -31,6 +31,17 @@ export default class ManageGallery extends Component {
             });
     }
 
+    /* Mark the image as selected on click event. If there are marked images, we’ll display a delete button */
+    selectImage(event, obj) {
+        let images = this.state.images;
+        images[obj.index].selected = !images[object.index.selected];
+        this.setState({
+            images: images,
+        }, () => {
+            this.verifyMarked();
+        });
+    }
+
     render() {
         return(
             <div className="gallery">
