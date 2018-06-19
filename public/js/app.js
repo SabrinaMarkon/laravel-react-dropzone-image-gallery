@@ -66964,6 +66964,25 @@ var ManageGallery = function (_Component) {
                 _this3.verifyMarked();
             });
         }
+
+        /* Calculate the total number of marked images and update selected and state on our component */
+
+    }, {
+        key: 'verifyMarked',
+        value: function verifyMarked() {
+            var marked = false,
+                mark_count = 0;
+            this.state.images.map(function (image) {
+                if (image.selected) {
+                    marked = true;
+                    mark_count += 1;
+                }
+            });
+            this.setState({
+                selected: marked,
+                selected_count: mark_count
+            });
+        }
     }, {
         key: 'render',
         value: function render() {

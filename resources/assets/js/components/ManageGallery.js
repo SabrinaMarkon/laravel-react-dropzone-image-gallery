@@ -42,6 +42,22 @@ export default class ManageGallery extends Component {
         });
     }
 
+    /* Calculate the total number of marked images and update selected and state on our component */
+    verifyMarked() {
+        let marked = false,
+              mark_count = 0;
+        this.state.images.map(image => {
+            if (image.selected) {
+                marked = true;
+                mark_count += 1;
+            }
+        });
+        this.setState({
+            selected: marked,
+            selected_count: mark_count
+        });
+    }
+
     render() {
         return(
             <div className="gallery">
