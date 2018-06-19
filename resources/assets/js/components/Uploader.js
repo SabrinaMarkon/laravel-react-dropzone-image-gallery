@@ -21,7 +21,7 @@ export default class Uploader extends Component {
     onDrop(images) {
         //console.log(images);
         this.setState({
-            images: this.state.images.push([...images])
+            images: this.state.images.concat([...images])
         });
         //console.log(this.state.images);
     }

@@ -17,12 +17,12 @@ export default class Gallery extends Component {
     componentDidMount() {
         if (this.state.images.length > 0) {
             get('/photos')
-            .then(response => {
-                const images = response.data;
-                this.setState({
-                    images: images
-                });
-            })
+                .then(response => {
+                    const images = response.data;
+                    this.setState({
+                        images: images
+                    });
+                })
         }
     }
 
