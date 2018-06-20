@@ -58,6 +58,30 @@ export default class ManageGallery extends Component {
         });
     }
 
+    /* handle the delete button for an image */
+    deleteImages(e) {
+        e.preventDefault();
+        let marked = this.state.images.filter(image => {
+            return image.selected;
+        });
+        marked.map(image => {
+            axios.delete('/photos', {
+                params: {
+                    id: image.id
+                }
+            }).then(response => {
+                if (response.data.deleted) {
+                    this.setState({
+                        images: this.state.images.filter(img => {
+                            return img.id !== image.id
+                        })
+                    });
+                    toastr.success('Images were deleted from the gallery');
+                }
+            });
+        });
+    }
+
     render() {
         return(
             <div className="gallery">
