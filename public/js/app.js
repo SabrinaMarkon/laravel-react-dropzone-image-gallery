@@ -65532,6 +65532,9 @@ var Uploader = function (_Component) {
             uploading: true,
             supported_mime: ['image/jpeg', 'image/png']
         };
+        _this.onDrop = _this.onDrop.bind(_this);
+        _this.onDropRejected = _this.onDropRejected.bind(_this);
+        _this.uploadFiles = _this.uploadFiles.bind(_this);
         return _this;
     }
 
@@ -66981,6 +66984,35 @@ var ManageGallery = function (_Component) {
             this.setState({
                 selected: marked,
                 selected_count: mark_count
+            });
+        }
+
+        /* handle the delete button for an image */
+
+    }, {
+        key: 'deleteImages',
+        value: function deleteImages(e) {
+            var _this4 = this;
+
+            e.preventDefault();
+            var marked = this.state.images.filter(function (image) {
+                return image.selected;
+            });
+            marked.map(function (image) {
+                axios.delete('/photos', {
+                    params: {
+                        id: image.id
+                    }
+                }).then(function (response) {
+                    if (response.data.deleted) {
+                        _this4.setState({
+                            images: _this4.state.images.filter(function (img) {
+                                return img.id !== image.id;
+                            })
+                        });
+                        toastr.success('Images were deleted from the gallery');
+                    }
+                });
             });
         }
     }, {

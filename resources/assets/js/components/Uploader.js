@@ -16,6 +16,9 @@ export default class Uploader extends Component {
                 'image/png'
             ]
         }
+        this.onDrop = this.onDrop.bind(this);
+        this.onDropRejected = this.onDropRejected.bind(this);
+        this.uploadFiles = this.uploadFiles.bind(this);
     }
 
     onDrop(images) {
