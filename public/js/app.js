@@ -65555,6 +65555,17 @@ var Uploader = function (_Component) {
             }
         }
     }, {
+        key: 'removeDroppedFile',
+        value: function removeDroppedFile(preview) {
+            var e = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+            this.setState({
+                images: this.state.images.filter(function (image) {
+                    return image.preview !== preview;
+                })
+            });
+        }
+    }, {
         key: 'uploadFiles',
         value: function uploadFiles() {
             var _this2 = this;
@@ -65589,16 +65600,17 @@ var Uploader = function (_Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'uploader' },
+                { className: 'uploader', style: { marginTop: 20 } },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'text-center' },
+                    { className: 'text-center', style: { marginBottom: 20 } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_dropzone__["a" /* default */],
                         {
                             onDropAccepted: this.onDrop.bind(this),
                             onDropRejected: this.onDropRejected.bind(this),
                             className: 'btn btn-dark',
+                            style: { marginRight: 10 },
                             accept: this.state.supported_mime },
                         'Select Images'
                     ),
@@ -65614,7 +65626,7 @@ var Uploader = function (_Component) {
                     null,
                     this.state.uploading && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'progress' },
+                        { className: 'progress', style: { marginBottom: 20 } },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', {
                             className: 'progress-bar',
                             role: 'progressbar',
@@ -65629,7 +65641,7 @@ var Uploader = function (_Component) {
                         this.state.images.map(function (file) {
                             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { key: file.preview, className: 'image' },
+                                { key: file.preview, className: 'image', style: { marginBottom: 20 } },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     {

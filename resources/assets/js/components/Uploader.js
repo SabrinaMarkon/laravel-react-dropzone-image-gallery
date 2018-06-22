@@ -35,6 +35,14 @@ export default class Uploader extends Component {
         }
     }
 
+    removeDroppedFile(preview, e = null){
+        this.setState({
+            images : this.state.images.filter((image) => {
+                return image.preview !== preview
+            })
+        })
+    }
+
     uploadFiles() {
         let images = this.state.images,
         config = { headers: { 'Content-Type': 'multipart/form-data'} },
@@ -62,13 +70,14 @@ export default class Uploader extends Component {
 
     render() {
         return (
-            <div className="uploader">
-                <div className="text-center">
+            <div className="uploader" style={{marginTop: 20}}>
+                <div className="text-center" style={{marginBottom: 20}}>
                 {/* We have two function callback as props to dropzone which will be called after selected images are accepted or rejected: onDrop and onDropRejected */}
                     <Dropzone
                         onDropAccepted={this.onDrop.bind(this)}
                         onDropRejected={this.onDropRejected.bind(this)}
                         className="btn btn-dark"
+                        style={{marginRight: 10}}
                         accept={this.state.supported_mime}>
                         Select Images
                     </Dropzone>
@@ -84,7 +93,7 @@ export default class Uploader extends Component {
                 {this.state.images.length ?
                     <Fragment>
                         {this.state.uploading &&
-                        <div className="progress">
+                        <div className="progress" style={{marginBottom: 20}}>
                             <div
                                 className="progress-bar"
                                 role="progressbar"
@@ -97,7 +106,7 @@ export default class Uploader extends Component {
 
                         <div className="images">
                             {this.state.images.map((file) =>
-                                <div key={file.preview} className="image">
+                                <div key={file.preview} className="image" style={{marginBottom: 20}}>
                                     <span
                                         className="close"
                                         onClick={this.removeDroppedFile.bind(this, file.preview)}>X</span>
