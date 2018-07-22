@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Photos;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller

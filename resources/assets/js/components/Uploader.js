@@ -18,7 +18,9 @@ export default class Uploader extends Component {
         }
         this.onDrop = this.onDrop.bind(this);
         this.onDropRejected = this.onDropRejected.bind(this);
+        this.removeDroppedFile = this.removeDroppedFile.bind(this);
         this.uploadFiles = this.uploadFiles.bind(this);
+        this.calculateProgress = this.calculateProgress.bind(this);
     }
 
     onDrop(images) {
@@ -43,7 +45,20 @@ export default class Uploader extends Component {
         })
     }
 
+    calculateProgress(total, uploaded){
+        let percentage = (uploaded / total) * 100;
+        this.setState({
+            progress : percentage,
+            uploading : percentage !== 100
+        });
+
+        if(percentage === 100){
+            toastr.success('Images uploaded to gallery');
+        }
+    }
+
     uploadFiles() {
+        // console.log('wtf - ' + this.state.images);
         let images = this.state.images,
         config = { headers: { 'Content-Type': 'multipart/form-data'} },
         total_files = this.state.images.length,
@@ -58,12 +73,14 @@ export default class Uploader extends Component {
             let formData = new FormData();
             formData.append("file", image);
 
-            post("/photos", formData, config). then(response => {
+             post("/photos", formData, config).then(response => {
                 const done = response.data;
-                if (done) {
+                if(done){
                     this.removeDroppedFile(image.preview);
                     this.calculateProgress(total_files, ++uploaded);
                 }
+            }).catch(error => {
+                console.log(error.response)
             });
         });
     }
@@ -74,18 +91,21 @@ export default class Uploader extends Component {
                 <div className="text-center" style={{marginBottom: 20}}>
                 {/* We have two function callback as props to dropzone which will be called after selected images are accepted or rejected: onDrop and onDropRejected */}
                     <Dropzone
-                        onDropAccepted={this.onDrop.bind(this)}
-                        onDropRejected={this.onDropRejected.bind(this)}
+                        onDropAccepted={this.onDrop}
+                        onDropRejected={this.onDropRejected}
                         className="btn btn-dark"
                         style={{marginRight: 10}}
                         accept={this.state.supported_mime}>
                         Select Images
                     </Dropzone>
 
-                    {this.state.images.length > 0 && <button className="btn btn-dark uploadBtn"
-                    onClick={this.uploadFiles.bind(this)}>
-                        Upload
-                    </button>
+                    {this.state.images.length > 0 &&
+                        <button
+                            className="btn btn-dark uploadBtn"
+                            onClick={this.uploadFiles}
+                        >
+                            Upload
+                        </button>
                     }
 
                 </div>
@@ -93,28 +113,30 @@ export default class Uploader extends Component {
                 {this.state.images.length ?
                     <Fragment>
                         {this.state.uploading &&
-                        <div className="progress" style={{marginBottom: 20}}>
-                            <div
-                                className="progress-bar"
-                                role="progressbar"
-                                style={{width: this.state.progress}}
-                                aria-valuenow={this.state.progress}
-                                aria-valuemin="0"
-                                aria-valuemax="100" />
-                        </div>
+                            <div className="progress">
+                                <div
+                                    className="progress-bar"
+                                    role="progressbar"
+                                    style={{width : this.state.progress}}
+                                    aria-valuenow={this.state.progress}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"/>
+                            </div>
                         }
 
                         <div className="images">
-                            {this.state.images.map((file) =>
-                                <div key={file.preview} className="image" style={{marginBottom: 20}}>
-                                    <span
-                                        className="close"
-                                        onClick={this.removeDroppedFile.bind(this, file.preview)}>X</span>
-                                    <img src={file.preview} alt="" />
-                                </div>
-                            )}
+                            {
+                                this.state.images.map((file) =>
+                                    <div key={file.preview} className="image">
+                                        <span
+                                            className="close"
+                                            onClick={this.removeDroppedFile.bind(this, file.preview)}
+                                        >X</span>
+                                        <img src={file.preview} alt=""/>
+                                    </div>
+                                )
+                            }
                         </div>
-
                     </Fragment>
                     :
                     <div className="no-images">

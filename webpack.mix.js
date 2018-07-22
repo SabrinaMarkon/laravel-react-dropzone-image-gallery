@@ -13,8 +13,8 @@ let mix = require('laravel-mix');
 
 mix.react('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .mix.browserSync('localhost:8000');
-//    .sourceMaps()
+   .mix.browserSync('localhost:8000')
+   .sourceMaps();
 //    .webpackConfig({
 //     devtool: 'source-map'
 // });

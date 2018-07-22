@@ -22,7 +22,9 @@ export default class Gallery extends Component {
                     this.setState({
                         images: images
                     });
-                })
+                }).catch(error => {
+                    console.log(error.response)
+                });
         }
     }
 
@@ -77,7 +79,7 @@ export default class Gallery extends Component {
                 }
 
                 <Lightbox
-                    images={photos}
+                    images={this.state.images}
                     onClose={this.closeLightbox.bind(this)}
                     onClickPrev={this.gotoPrevious.bind(this)}
                     onClickNext={this.gotoNext.bind(this)}

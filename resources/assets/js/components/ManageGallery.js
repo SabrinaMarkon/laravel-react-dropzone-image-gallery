@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {get} from 'axios'; // use get method and connect to url.
+import axios,{get} from 'axios';
 import ReactGallery from 'react-photo-gallery';
+import SelectedImage from './SelectedImage';
+import toastr from 'toastr';
 
 export default class ManageGallery extends Component {
 
@@ -28,6 +30,8 @@ export default class ManageGallery extends Component {
                 this.setState({
                     images: images
                 });
+            }).catch(error => {
+                console.log(error.response)
             });
     }
 
@@ -78,6 +82,8 @@ export default class ManageGallery extends Component {
                     });
                     toastr.success('Images were deleted from the gallery');
                 }
+            }).catch(error => {
+                console.log(error.response)
             });
         });
     }
@@ -88,13 +94,13 @@ export default class ManageGallery extends Component {
                 {this.state.selected > 0 &&
                 <button
                     className="btn btn-danger deleteBtn"
-                    onClick={this.deleteIMages.bind(this)}
+                    onClick={this.deleteImages.bind(this)}
                 >   Delete {this.state.selected_count} Selected Photos
                 </button>
                 }
                 {this.state.images.length ?
                 <ReactGallery
-                    photos={photos}
+                    photos={this.state.images}
                     onClick={this.selectImage.bind(this)}
                     ImageComponent={SelectedImage}
                 />
