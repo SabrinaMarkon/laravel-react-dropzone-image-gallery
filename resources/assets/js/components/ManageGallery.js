@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios,{get} from 'axios';
 import ReactGallery from 'react-photo-gallery';
-import SelectedImage from './SelectedImage';
+// import SelectedImage from './SelectedImage';
 import toastr from 'toastr';
 
 export default class ManageGallery extends Component {
@@ -80,6 +80,8 @@ export default class ManageGallery extends Component {
                             return img.id !== image.id
                         })
                     });
+                    toastr.options.timeOut = 5000;
+                    toastr.options.positionClass = 'toast-top-center';
                     toastr.success('Images were deleted from the gallery');
                 }
             }).catch(error => {
@@ -102,7 +104,7 @@ export default class ManageGallery extends Component {
                 <ReactGallery
                     photos={this.state.images}
                     onClick={this.selectImage.bind(this)}
-                    ImageComponent={SelectedImage}
+                    // ImageComponent={SelectedImage}
                 />
                 :
                 <div className="no-images">

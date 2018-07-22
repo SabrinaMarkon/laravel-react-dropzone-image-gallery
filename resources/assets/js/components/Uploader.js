@@ -33,6 +33,8 @@ export default class Uploader extends Component {
 
     onDropRejected(images) {
         if (images.length) {
+            toastr.options.timeOut = 5000;
+            toastr.options.positionClass = 'toast-top-center';
             toastr.error('Please upload valid image files. Supported extension JPEG and PNG', 'Invalid MIME type');
         }
     }
@@ -53,6 +55,8 @@ export default class Uploader extends Component {
         });
 
         if(percentage === 100){
+            toastr.options.timeOut = 5000;
+            toastr.options.positionClass = 'toast-top-center';
             toastr.success('Images uploaded to gallery');
         }
     }
