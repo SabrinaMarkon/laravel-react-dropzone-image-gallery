@@ -10418,6 +10418,7 @@ a.text-dark:focus {
 }
 
 .toast-top-center {
-  margin: 15% auto;
+  margin: auto;
+  margin-top: 15%;
 }
 

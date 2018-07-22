@@ -48,6 +48,10 @@ return [
             'root' => storage_path('app'),
         ],
 
+        /* Sabrina: to use local storage with windows (well, windows 7 anyway), you have to run gdedit.msc and add your windows username to add symbolic links permission.
+        Afterwards, if you already have a storage folder under /public then delete it. Make
+        again with php artisan storage:link and that will create a symbolic link to the real
+        folder of stored uploads under storage/app/public */
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
