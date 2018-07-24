@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios,{get} from 'axios';
 import ReactGallery from 'react-photo-gallery';
-// import SelectedImage from './SelectedImage';
+import SelectedImage from './SelectedImage';
 import toastr from 'toastr';
 
 export default class ManageGallery extends Component {
@@ -38,7 +38,7 @@ export default class ManageGallery extends Component {
     /* Mark the image as selected on click event. If there are marked images, we’ll display a delete button */
     selectImage(event, obj) {
         let images = this.state.images;
-        images[obj.index].selected = !images[object.index.selected];
+        images[obj.index].selected = !images[obj.index.selected];
         this.setState({
             images: images,
         }, () => {
@@ -104,7 +104,7 @@ export default class ManageGallery extends Component {
                 <ReactGallery
                     photos={this.state.images}
                     onClick={this.selectImage.bind(this)}
-                    // ImageComponent={SelectedImage}
+                    ImageComponent={SelectedImage}
                 />
                 :
                 <div className="no-images">
