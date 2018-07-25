@@ -75,6 +75,7 @@ export default class ManageGallery extends Component {
                     _method: 'delete'
                 }
             }).then(response => {
+                console.log(response.data);
                 if (response.data.deleted) {
                     this.setState({
                         images: this.state.images.filter(img => {
