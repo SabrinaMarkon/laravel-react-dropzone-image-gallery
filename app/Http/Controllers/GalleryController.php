@@ -6,6 +6,7 @@ use App\Photos;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+// use App\Http\Requests\UploadFormRequest;
 
 class GalleryController extends Controller
 {
