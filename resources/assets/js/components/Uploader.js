@@ -121,22 +121,22 @@ export default class Uploader extends Component {
                                 <div
                                     className="progress-bar"
                                     role="progressbar"
-                                    style={{width : this.state.progress}}
+                                    style={{ width : this.state.progress }}
                                     aria-valuenow={this.state.progress}
                                     aria-valuemin="0"
                                     aria-valuemax="100"/>
                             </div>
                         }
 
-                        <div className="images">
+                        <div className="images" style={{ marginTop: '20px' }}>
                             {
                                 this.state.images.map((file) =>
-                                    <div key={file.preview} className="image">
+                                    <div key={file.preview} className="image" style={{ maxWidth: '600px' }}>
                                         <span
                                             className="close"
                                             onClick={this.removeDroppedFile.bind(this, file.preview)}
                                         >X</span>
-                                        <img src={file.preview} alt=""/>
+                                        <img src={file.preview} alt="" style={{ marginBottom: '20px', width: '100%' }}/>
                                     </div>
                                 )
                             }
