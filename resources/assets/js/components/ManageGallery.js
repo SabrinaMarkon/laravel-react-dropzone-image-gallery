@@ -87,9 +87,13 @@ export default class ManageGallery extends Component {
                         selected: false
                     });
                 }
-                toastr.options.timeOut = 5000;
-                toastr.options.positionClass = 'toast-top-center';
-                toastr.success('Image ' + image.id + ' was deleted from the gallery');
+                toastr.options = {
+                    timeOut: 5000,
+                    preventDuplicates: 1,
+                    preventOpenDuplicates: 1,
+                    positionClass: 'toast-top-center'
+                };
+                toastr.success('Images were deleted from the gallery');
             }).catch(error => {
                 console.log(error.response)
             });
