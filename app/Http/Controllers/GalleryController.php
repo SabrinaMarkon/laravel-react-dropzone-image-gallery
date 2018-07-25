@@ -50,7 +50,6 @@ class GalleryController extends Controller
     /* delete image(s) from the storage and database */
     public function deletePhoto(Request $request, $id) {
         $photo = Photos::find($id);
-        echo $photo->id;
         Photos::where('id', $photo->id)->delete();
         Storage::disk('public')->delete($photo->uri);
         return response()->json([

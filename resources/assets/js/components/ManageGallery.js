@@ -75,17 +75,21 @@ export default class ManageGallery extends Component {
                     _method: 'delete'
                 }
             }).then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data.deleted) {
+                    // console.log(response.data.deleted);
                     this.setState({
                         images: this.state.images.filter(img => {
                             return img.id !== image.id
                         })
                     });
-                    toastr.options.timeOut = 5000;
-                    toastr.options.positionClass = 'toast-top-center';
-                    toastr.success('Images were deleted from the gallery');
+                    this.setState({
+                        selected: false
+                    });
                 }
+                toastr.options.timeOut = 5000;
+                toastr.options.positionClass = 'toast-top-center';
+                toastr.success('Image ' + image.id + ' was deleted from the gallery');
             }).catch(error => {
                 console.log(error.response)
             });
