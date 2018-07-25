@@ -69,9 +69,10 @@ export default class ManageGallery extends Component {
             return image.selected;
         });
         marked.map(image => {
-            axios.delete('/photos', {
+            axios.delete('/photos/' + image.id, {
                 params: {
-                    id: image.id
+                    id: image.id,
+                    _method: 'delete'
                 }
             }).then(response => {
                 if (response.data.deleted) {
