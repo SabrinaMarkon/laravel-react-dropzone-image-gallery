@@ -1,7 +1,7 @@
 # Laravel & React-Dropzone Image Gallery App *
 
-Demo: 
-
+Demo: https://laravel-react-image-gallery.herokuapp.com
+Login: demouser/demopass
 
 An image gallery app that uses Laravel and a database in the backend, and React in the frontend.
 
@@ -14,18 +14,16 @@ An image gallery app that uses Laravel and a database in the backend, and React 
 
 - Note run commands below are done in the terminal.
 
-1. Upload to server.
+1. Upload files to server.
 1. Run npm install.
 1. Run composer install (if you have composer installed globally)
    or php composer.phar install if your composer is local to your project directory.
-1. Create your database and database user/pass.
-1. Run php artisan key:generate to create the APP_KEY variable in the .env file in the next step.
 1. Open the .env file and change the default Laravel variables  
-   to your own values.
+   to your own values (see next steps as well).
+1. Create your database and database username and password to add to your .env file.
+1. Run php artisan key:generate to create the APP_KEY variable in the .env file.
 1. Run php artisan:migrate to create the database tables.
-1. Run php artisan make:auth to create the user registration and 
-   login system.
-1. Run php artisan serve
-1. run npm run watch
+1. Run php artisan serve.
+1. run npm run watch.
 
 
