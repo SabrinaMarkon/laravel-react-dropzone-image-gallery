@@ -1,37 +1,31 @@
-## Welcome to GitHub Pages
+# Laravel & React-Dropzone Image Gallery App *
 
-You can use the [editor on GitHub](https://github.com/SabrinaMarkon/laravel-react-dropzone-image-gallery/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Demo: 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+An image gallery app that uses Laravel and a database in the backend, and React in the frontend.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Login to upload images from your device.
+1. Manage images area.
+1. Select multiple images to delete.
+1. Click to view gallery of images in masonry layout.
 
-```markdown
-Syntax highlighted code block
+## Installation: ##
 
-# Header 1
-## Header 2
-### Header 3
+- Note run commands below are done in the terminal.
 
-- Bulleted
-- List
+1. Upload to server.
+1. Run npm install.
+1. Run composer install (if you have composer installed globally)
+   or php composer.phar install if your composer is local to your project directory.
+1. Create your database and database user/pass.
+1. Run php artisan key:generate to create the APP_KEY variable in the .env file in the next step.
+1. Open the .env file and change the default Laravel variables  
+   to your own values.
+1. Run php artisan:migrate to create the database tables.
+1. Run php artisan make:auth to create the user registration and 
+   login system.
+1. Run php artisan serve
+1. run npm run watch
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SabrinaMarkon/laravel-react-dropzone-image-gallery/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
