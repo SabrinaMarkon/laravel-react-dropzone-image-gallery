@@ -1,10 +1,7 @@
 # Laravel & React-Dropzone Image Gallery App *
 
-Demo: https://laravel-react-image-gallery.herokuapp.com
+Demo: https://laravelrdig.phpsitescripts.com
 Login: phpsitescripts@outlook.com/demopass
-
-** Note the demo is on Heroku at the moment which does not allow uploaded images to persist. In the demo, you will see
-that the images upload successfully, but they will not remain on Heroku's server. **
 
 An image gallery app that uses Laravel and a database in the backend, and React in the frontend.
 
