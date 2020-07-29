@@ -1,0 +1,11 @@
+[26-Jul-2020 06:08:20 UTC] PHP Warning:  require(/home/phpsites/laravelrdig.phpsitescripts.com/../vendor/autoload.php): failed to open stream: No such file or directory in /home/phpsites/laravelrdig.phpsitescripts.com/index.php on line 24
+[26-Jul-2020 06:08:20 UTC] PHP Warning:  require(/home/phpsites/laravelrdig.phpsitescripts.com/../vendor/autoload.php): failed to open stream: No such file or directory in /home/phpsites/laravelrdig.phpsitescripts.com/index.php on line 24
+[26-Jul-2020 06:08:20 UTC] PHP Fatal error:  require(): Failed opening required '/home/phpsites/laravelrdig.phpsitescripts.com/../vendor/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/phpsites/laravelrdig.phpsitescripts.com/index.php on line 24
+[26-Jul-2020 06:09:58 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 06:11:23 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 06:11:27 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 06:18:08 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 06:18:48 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 06:23:37 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[26-Jul-2020 07:13:03 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[29-Jul-2020 04:05:53 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/phpsites/laravelrdig.phpsitescripts.com/vendor/symfony/polyfill-php80/bootstrap.php on line 23
