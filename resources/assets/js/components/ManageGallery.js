@@ -119,7 +119,7 @@ export default class ManageGallery extends Component {
                 :
                 <div className="no-images">
                     <h5 className="text-center">
-                        You currenty have no images in your photos gallery
+                        You currenty have no images in your gallery
                     </h5>
                 </div>
                 }
