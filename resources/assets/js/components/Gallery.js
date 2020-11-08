@@ -73,19 +73,19 @@ export default class Gallery extends Component {
                 :
                 <div className="no-images">
                     <h5 className="text-center">
-                        There are no images in the photo gallery yet.
+                        There are currently no images in the gallery.
                     </h5>
                 </div>
                 }
 
-                <Lightbox
+                {/* <Lightbox
                     images={this.state.images}
                     onClose={this.closeLightbox.bind(this)}
                     onClickPrev={this.gotoPrevious.bind(this)}
                     onClickNext={this.gotoNext.bind(this)}
                     currentImage={this.state.currentImage}
                     isOpen={this.state.lightboxIsOpen}
-                    />
+                    /> */}
             </div>
         );
     }
