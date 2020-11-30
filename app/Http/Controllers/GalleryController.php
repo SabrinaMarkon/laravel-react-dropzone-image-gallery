@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
     public function index() {
-        return view('app');
+		// return response()->json(Auth::user()->photos->toArray());
+		 return view('app');
     }
 
     public function getPhotos() {

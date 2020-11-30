@@ -73,7 +73,11 @@ export default class Gallery extends Component {
                 :
                 <div className="no-images">
                     <h5 className="text-center">
+<<<<<<< HEAD
                         There are currently no images in the gallery.
+=======
+                        There are no images in the photo gallery yet.
+>>>>>>> 712bf532fecd84040eecca123795bdfe591706a0
                     </h5>
                 </div>
                 }
